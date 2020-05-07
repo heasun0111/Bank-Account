@@ -3,6 +3,12 @@ account_number = []
 account_name = []
 account_deposit = []
 
+"""
+def Integer_check(Number_check):
+    if (Number_check.isdigit() != True):
+        print("**잘못 입력하셨습니다**")
+"""
+
 def Deposit_money():
     print("======입금하기======")
 
@@ -40,24 +46,33 @@ def Withdraw_money():
 
 def Making_account():
     print("======계좌개설======")
+    Number_check = input("계좌번호:")
+    if( Number_check.isdigit() != True ):
+        print("**잘못 입력하셨습니다**")
 
-    Number = int(input("계좌번호:"))
-#    if()
-    account_number.append(Number)
+    else:
+        Number = int(Number_check)
+        if( Number in account_number ):
+            print("**이미 생성된 계좌번호입니다.**")
 
-    Name = str(input("이름:"))
-    account_name.append(Name)
+        else :
+            account_number.append(Number)
 
-    Deposit = int(input("예금:"))
-    account_deposit.append(Deposit)
+            Name = str(input("이름:"))
+            account_name.append(Name)
 
-    print("""##계좌개설을 완료하였습니다##
-    ===================""")
+            Deposit = int(input("예금:"))
+            account_deposit.append(Deposit)
+
+            print("""##계좌개설을 완료하였습니다##
+            ===================""")
 
 def Checking_account():
     print("======전체조회=====")
     for i in range(len(account_number)):
         print("계좌번호:",account_number[i],"/ 이름:",account_name[i],"/ 잔액:",account_deposit[i],"원")
+
+    print("===================")
 
 
 def Bank_menu():
@@ -74,19 +89,15 @@ def Bank_menu():
         choice = int(input('입력:'))
 
         if choice == 1:
-            print("계좌개설 실행")
             Making_account()
 
         elif choice == 2:
-            print("입금하기 실행")
             Deposit_money()
 
         elif choice == 3:
-            print("출금하기 실행")
             Withdraw_money()
 
         elif choice == 4:
-            print("전체조회 실행")
             Checking_account()
 
         elif choice == 5:
