@@ -70,7 +70,21 @@ class Account_function():
 
     def Checking_account(self):
         print("======전체조회=====")
-        for i in range(len(account_number)):
-            print("계좌번호:",account_number[i],"/ 이름:",account_name[i],"/ 잔액:",account_deposit[i],"원")
+        if len(account_number) == 0:
+            print("##현재 개설된 계좌가 없습니다.##")
 
-        print("===================")
+        else:
+            for i in range(len(account_number)):
+                print("계좌번호:",account_number[i],"/ 이름:",account_name[i],"/ 잔액:",account_deposit[i],"원")
+                print("===================")
+
+    def Delete_account(self):
+        print("======계좌 삭제하기=======")
+        delete_account=int(input("삭제할 계좌번호를 입력해주세요:"))
+        if delete_account in account_number:
+            account_number.remove(delete_account)
+
+            print("입력하신 계좌를 삭제하였습니다.")
+
+        else :
+            print("입력하신 계좌를 조회할 수 없습니다.")
