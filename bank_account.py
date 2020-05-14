@@ -9,8 +9,9 @@ class Menu():
             1. 계좌개설
             2. 입금하기
             3. 출금하기
-            4. 전체조회
-            5. 프로그램 종료
+            4. 계좌삭제
+            5. 전체조회
+            6. 프로그램 종료
             =====================
             ''')
             choice = int(input('입력:'))
@@ -25,9 +26,12 @@ class Menu():
                 f.Withdraw_money()
 
             elif choice == 4:
-                f.Checking_account()
+                f.Delete_account()
 
             elif choice == 5:
+                f.Checking_account()
+
+            elif choice == 6:
                 print("##프로그램을 종료합니다##")
                 break
 
